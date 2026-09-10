@@ -20,7 +20,6 @@ class Solution:
         # Hint: clip y_pred to [1e-7, 1 - 1e-7] to avoid log(0)
         # return round(your_answer, 4)
         y_pred = np.clip(y_pred, 1e-7, 1 - 1e-7)
-        ans = np.sum(y_true * np.log(y_pred))
-        ansnew = (-1/len(y_true))*np.sum(ans)
-        return round(ansnew, 4)
+        ans = (-1/len(y_true))*np.sum(y_true * np.log(y_pred))
+        return round(ans, 4)
         pass
